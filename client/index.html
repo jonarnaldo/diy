@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
 <head>
-<!--   <base href="/">
- -->  <meta name="viewport" content="width=device-width" />
-  <title>freehunt</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width" />
+  <title>DIY</title>
   <link rel="stylesheet" type="text/css" href="/style/style.css">
 </head>
 <body>
   <div>hello world</div>
+  <div ui-view></div>
+
+  <script src="/components/underscore/underscore-min.js"></script>
+  <script src="/components/angular/angular.min.js"></script>
+  <script src="/components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="/app/app.module.js"></script>
+  <script src="/app/core/core.module.js"></script>
+  <script src="/app/core/config.js"></script>
+  <script src="/app/details/details.module.js"></script>
+  <script src="/app/details/DetailsFactory.js"></script>  
+  <script src="/app/details/DetailsController.js"></script>
 </body>
 </html>
