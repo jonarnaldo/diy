@@ -2,9 +2,9 @@
 
   angular
   .module('app.details')
-  .factory('DetailsFactory', DetailsFactory);
+  .factory('AboutFactory', AboutFactory);
 
-  function DetailsFactory($http, $q, $timeout){
+  function AboutFactory($http, $q, $timeout){
 
     var services = {
       getComments: getComments,

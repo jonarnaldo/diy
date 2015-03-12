@@ -6,31 +6,22 @@ angular
   .config(config);
 
   function config($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider
-
     .state('home', {
-      url:'/',
+      url:'/project/{id}',
       templateUrl:'app/details/details.html',
       controller: 'DetailsController as vm'
-      // views: {
-      //   'list': {
-      //     templateUrl:'app/free/free.html',
-      //     controller:'FreeController as vm'
-      //   },
-      //   'map': {
-      //     templateUrl:'app/map/map.html',
-      //     controller:'MapController as vm' 
-      //   },
-      //   'header': {
-      //     templateUrl:'app/header/header.html'
-      //   }
-      // }
+    })
+    .state('about', {
+      url:'/about',
+      templateUrl: 'app/about/about.html',
+      controller: 'AboutController as vm'
     })
 
-    $locationProvider.html5Mode(true);
 
 
-    $urlRouterProvider.otherwise('/');
+    // $locationProvider.html5Mode(true);
   }
 }).call(this)

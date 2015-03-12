@@ -1,3 +1,53 @@
 body {
-  background-color: red;
+  background-color: #FCEAD0;
+}
+
+li {
+  list-style-type: none;
+}
+
+
+.list {
+  overflow: scroll;
+  height: 90vh;
+  color: black;
+  background-color: #FCEAD0;
+  padding: 10px;
+  margin: 0px;
+  border-bottom: solid #cccccc 2px;
+}
+
+.list-item {
+  color: #6B7A6D;
+  border-bottom: dotted #E46561 1px;
+  -webkit-transition:width 2s, height 2s, background-color 1s, -webkit-transform .1s;
+  transition:width 2s, height 2s, background-color 1s, transform .1s;
+  padding: 10px;
+}
+
+.list-item:hover {
+  background-color: #4BA890;
+  color: white;
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
+
+.header {
+  background-color: #E46561;
+  color: white;
+  padding: 0px;
+  margin: 0px;
+  height: 50px;
+}
+
+.header > span {
+
+}
+
+.title {
+  font-size: 2em;
+}
+
+div.special > div[class*="col-"] {
+ padding: 0; 
 }

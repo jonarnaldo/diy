@@ -4,11 +4,11 @@
   
   angular
   .module('app.details')
-  .controller('DetailsController', DetailsController);
+  .controller('AboutController', AboutController);
 
-  DetailsController.$inject = ['DetailsFactory', '$scope', '$rootScope', '$stateParams', '$q', '$timeout', '$http', '$window'];
+  AboutController.$inject = ['DetailsFactory', '$scope', '$rootScope', '$stateParams', '$q', '$timeout', '$http', '$window'];
 
-  function DetailsController(DetailsFactory, $scope, $rootScope, $stateParams, $q, $timeout, $http, $window){
+  function AboutController(DetailsFactory, $scope, $rootScope, $stateParams, $q, $timeout, $http, $window){
     var vm = this;
 
     DetailsFactory.getComments(function(data) {
