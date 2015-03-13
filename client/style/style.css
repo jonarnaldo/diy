@@ -2,8 +2,14 @@ body {
   background-color: #FCEAD0;
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+}
+
 li {
   list-style-type: none;
+  padding-bottom: 10px;
 }
 
 
@@ -33,10 +39,10 @@ li {
 }
 
 .header {
-  background-color: #E46561;
+  background-color: black;
   color: white;
   padding: 0px;
-  margin: 0px;
+  margin-bottom: 30px;
   height: 50px;
 }
 
