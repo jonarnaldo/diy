@@ -1,7 +1,8 @@
 <div class="container-fluid">
 <div class="row special">
-  <div class="col-lg-8">image</div>
-  <button ng-click="vm.redirect()">redirect</button>
+  <div class="col-lg-8">
+    <img src="{{ vm.image }}">
+  </div>
   <div class="col-lg-4">
     <div class="row">
       <div class="col-lg-12">
@@ -16,15 +17,15 @@
     <div class="row">
       <div class="col-lg-12">
         Badges
-
-
       </div>
     </div>
   </div>
 </div>
 <div class="row special">
   <div class="col-lg-8">
-    <div class="header">Comments</div>
+    <div class="header">
+      {{ vm.commentCount }} Comments
+    </div>
     <ul>
       <li id="{{ comment.id }}" ng-repeat="comment in vm.comments">
         <img src="{{ comment.maker.avatar.icon.url }}">
