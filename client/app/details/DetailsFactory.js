@@ -15,7 +15,7 @@
     function getProject(projectId, cb) {
       console.log('getting data...');
       $http({
-        url: 'http://api.diy.org/makers/hivetest/projects/' + projectId,
+        url: 'https://api.diy.org/makers/hivetest/projects/' + projectId,
         method: 'GET'
       }).success(function(data, status, headers, config) {
         if (data.head.code === 200) {
