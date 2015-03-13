@@ -11,9 +11,10 @@
   function DetailsController(DetailsFactory, $scope, $rootScope, $stateParams, $q, $timeout, $http, $window){
     var vm = this;
 
+    vm.maker = $stateParams.maker;
     vm.projectId = $stateParams.projectId;
 
-    DetailsFactory.getProject(vm.projectId, function(data) {
+    DetailsFactory.getProject(vm.maker, vm.projectId, function(data) {
       var project = data.response;
       vm.title = project.title;
       vm.image = project.clips[0].assets.web_270.url;
@@ -21,11 +22,11 @@
       vm.date = DetailsFactory.parseDate(project.stamp);
       vm.favorites = project.stats.favorites;
       
-      DetailsFactory.getComments(vm.projectId, function(data) {
+      DetailsFactory.getComments(vm.maker, vm.projectId, function(data) {
         vm.comments = data.response;
       });
 
-      DetailsFactory.getFavorites(vm.projectId, function(data) {
+      DetailsFactory.getFavorites(vm.maker, vm.projectId, function(data) {
         vm.makersFavorite = data.response;
         console.log(vm.makersFavorite);
       })

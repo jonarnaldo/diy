@@ -15,7 +15,7 @@ angular
       controller: 'DetailsController as vm'
     })
     .state('home', {
-      url:'/projects/:projectId',
+      url:'/:maker/:projectId',
       templateUrl:'app/details/details.html',
       controller: 'DetailsController as vm'
     })

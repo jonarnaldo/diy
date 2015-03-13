@@ -15,17 +15,15 @@
 
     return services;
 
-    var makerNickName = undefined;
 
-    function getProject(projectId, cb) {
+    function getProject(maker, projectId, cb) {
       console.log('getting data...');
       $http({
-        url: 'https://api.diy.org/makers/hivetest/projects/' + projectId,
+        url: 'https://api.diy.org/makers/' + maker + '/projects/' + projectId,
         method: 'GET'
       }).success(function(data, status, headers, config) {
         if (data.head.code === 200) {
           console.log('project:', data); 
-          makerNickName = data.response.maker.nickname;
           cb(data);
         }
       }).error(function (data, status, headers, config) {
@@ -35,9 +33,9 @@
       })
     }
 
-    function getComments(projectId, cb) {
+    function getComments(maker, projectId, cb) {
       $http({
-        url: 'https://api.diy.org/makers/' + makerNickName + '/projects/' + projectId + '/comments',
+        url: 'https://api.diy.org/makers/' + maker + '/projects/' + projectId + '/comments',
         method: 'GET'
       }).success(function(data, status, headers, config) {
         console.log('comments retreived', data)
@@ -47,9 +45,9 @@
       })
     }
 
-    function getFavorites(projectId, cb) {
+    function getFavorites(maker, projectId, cb) {
       $http({
-        url: 'https://api.diy.org/makers/' +  makerNickName + '/projects/' + projectId + '/favorites',
+        url: 'https://api.diy.org/makers/' +  maker + '/projects/' + projectId + '/favorites',
         method: 'GET'
       }).success(function(data, status, headers, config) {
         console.log('comments retreived', data)
