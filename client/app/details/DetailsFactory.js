@@ -67,12 +67,21 @@
       var comment = { raw: comment }
 
       var req = {
-       method: 'POST',
-       url: 'https://api.diy.org/makers/' + makername + '/projects/' + projectId + '/comments',
-       headers: {
-         'x-diy-api-token': '"7eb062862633e4b50a11f8d845df6e113430da0f"'
-       },
-       data: { raw: comment },
+        method: 'POST',
+        url: 'https://api.diy.org/makers/' + makername + '/projects/' + projectId + '/comments',
+        headers: {
+          'x-diy-api-token': '7eb062862633e4b50a11f8d845df6e113430da0f',
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data: comment,
+        transformRequest: function(data) {
+          console.log('transforming:',data)
+          var str = [];
+          for (var key in data) {
+            str.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));
+            return str.join('&');
+          }
+        }
       };
 
       $http(req).success(function(data, status, headers, config) {

@@ -44,8 +44,7 @@
     })
 
     vm.submit = function(comment) {
-      console.log(comment); //makername, projectId, comment
-      DetailsFactory.postComment('corgiponcho', vm.projectId, comment);
+      DetailsFactory.postComment(vm.maker, vm.projectId, comment);
     }
 
 
