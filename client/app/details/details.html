@@ -56,10 +56,10 @@
               <div class="col-lg-11">
                 <div>user name</div>
                 <div>
-                  <input placeholder="comments"></input>
+                  <input ng-model="comment" placeholder="comments"></input>
                 </div>
                 <div>
-                  <button>submit</button>
+                  <button ng-click="vm.submit(comment)">submit</button>
                 </div>
               </div>
             </div>

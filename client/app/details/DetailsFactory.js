@@ -10,7 +10,8 @@
       getProject: getProject,
       parseDate: parseDate,
       getComments: getComments,
-      getFavorites: getFavorites
+      getFavorites: getFavorites,
+      postComment: postComment
     }
 
     return services;
@@ -34,10 +35,12 @@
     }
 
     function getComments(maker, projectId, cb) {
-      $http({
-        url: 'https://api.diy.org/makers/' + maker + '/projects/' + projectId + '/comments',
-        method: 'GET'
-      }).success(function(data, status, headers, config) {
+      var req = {
+        method: 'GET',
+        url: 'https://api.diy.org/makers/' + maker + '/projects/' + projectId + '/comments'
+      }
+      
+      $http(req).success(function(data, status, headers, config) {
         console.log('comments retreived', data)
         cb(data);
       }).error(function(data, status, headers, config) {
@@ -46,10 +49,13 @@
     }
 
     function getFavorites(maker, projectId, cb) {
-      $http({
-        url: 'https://api.diy.org/makers/' +  maker + '/projects/' + projectId + '/favorites',
-        method: 'GET'
-      }).success(function(data, status, headers, config) {
+      
+      var req = {
+        method: 'GET',
+        url: 'https://api.diy.org/makers/' +  maker + '/projects/' + projectId + '/favorites'
+      }
+
+      $http(req).success(function(data, status, headers, config) {
         console.log('comments retreived', data)
         cb(data);
       }).error(function(data, status, headers, config) {
@@ -57,6 +63,26 @@
       })
     }
 
+    function postComment(makername, projectId, comment) {
+      var comment = { raw: comment }
+
+      var req = {
+       method: 'POST',
+       url: 'https://api.diy.org/makers/' + makername + '/projects/' + projectId + '/comments',
+       headers: {
+         'x-diy-api-token': '"7eb062862633e4b50a11f8d845df6e113430da0f"'
+       },
+       data: { raw: comment },
+      };
+
+      $http(req).success(function(data, status, headers, config) {
+        console.log('comments posted!', data)
+      }).error(function(data, status, headers, config) {
+        console.log(status);
+      })
+    }
+
+    // format date to make readable
     function parseDate(date) {
       var str = '';
       var months = ['Jan','Feb','March','April','May','June','July','Aug','Sep','Nov','Dec'];

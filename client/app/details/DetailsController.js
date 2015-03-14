@@ -40,9 +40,13 @@
 
       DetailsFactory.getFavorites(vm.maker, vm.projectId, function(data) {
         vm.makersFavorite = data.response;
-        console.log(vm.makersFavorite);
       })
     })
+
+    vm.submit = function(comment) {
+      console.log(comment); //makername, projectId, comment
+      DetailsFactory.postComment('corgiponcho', vm.projectId, comment);
+    }
 
 
     // vm.redirect = function() {
