@@ -34,14 +34,19 @@
         <div id="{{ comment.id }}" class="comment" ng-repeat="comment in vm.comments">
           <div class="container-fluid">
             <div class="row special">
-              <div class="col-lg-1">
+              <div class="col-lg-2">
                 <div class="userIcon">
-                  <img src="{{ comment.maker.avatar.icon.url }}">
+                  <img src="{{ comment.maker.avatar.small.url }}" height="50px" width="50px">
                 </div>
               </div>
-              <div class="col-lg-11">
-                <div class="comment-text">
-                  {{ comment.html }}
+              <div class="col-lg-10">
+                <div class="bubble">
+                  <div class>
+                    <a class="nickname" href='#'>{{ comment.maker.nickname }}</a> {{ comment.time }}
+                  </div>
+                  <div class="comment-text">
+                    {{ comment.html }}
+                  </div>
                 </div>
               </div>
             </div>
@@ -50,16 +55,18 @@
         <div id="add-comment" ng-model="test">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-lg-1">
-                user icon
+              <div class="col-lg-2">
+                {{ vm.currentUser.maker.avatar.small.url }}
               </div>
-              <div class="col-lg-11">
-                <div>user name</div>
+              <div class="col-lg-10">
                 <div>
-                  <input ng-model="comment" placeholder="comments"></input>
+                  <div class="bubble">
+                    <div><a class="nickname" href='#'>{{ vm.currentUser.nickname }}</a><div>
+                    <input ng-model="comment"></input>
+                  </div>
                 </div>
                 <div>
-                  <button ng-click="vm.submit(comment)">submit</button>
+                  <button class="btn btn-primary btn-sml btn-save" ng-click="vm.submit(comment)">send</button>
                 </div>
               </div>
             </div>
@@ -73,10 +80,8 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-lg-6">
-              favorites
             </div>
             <div class="col-lg-6">
-              favorites
             </div>
           </div>
         </div>

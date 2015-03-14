@@ -31,11 +31,24 @@
       } else {
         vm.comment = 'comment';
       }
-      vm.date = DetailsFactory.parseDate(project.stamp);
+      vm.date = moment(project.stamp).format('MMM Do YYYY');
       vm.favorites = project.stats.favorites;
       
+      DetailsFactory.getCurrentUser('corgiponcho', function(data) {
+        vm.currentUser = data.response;
+      })
+
       DetailsFactory.getComments(vm.maker, vm.projectId, function(data) {
-        vm.comments = data.response;
+        console.log(data.response);
+        vm.comments = [];
+
+        for (var i = 0; i < data.response.length; i++) {
+          var comments = {};
+          comments = data.response[i]
+          comments.time = moment(data.response[i].stamp).startOf('day').fromNow();
+          vm.comments.push(comments);
+        }
+        console.log('ang comments',vm.comments);
       });
 
       DetailsFactory.getFavorites(vm.maker, vm.projectId, function(data) {

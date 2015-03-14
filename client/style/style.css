@@ -1,41 +1,13 @@
-body {
-  background-color: #cccccc;
+a {
+  color: #3290d8;
 }
 
-ul {
-  padding: 0;
-  margin: 0;
+.nickname {
+  font-size: 1.5rem;
 }
 
-li {
-  list-style-type: none;
-  padding-bottom: 10px;
-}
-
-
-.list {
-  overflow: scroll;
-  height: 90vh;
-  color: black;
-  background-color: #FCEAD0;
-  padding: 10px;
-  margin: 0px;
-  border-bottom: solid #cccccc 2px;
-}
-
-.list-item {
-  color: #6B7A6D;
-  border-bottom: dotted #E46561 1px;
-  -webkit-transition:width 2s, height 2s, background-color 1s, -webkit-transform .1s;
-  transition:width 2s, height 2s, background-color 1s, transform .1s;
-  padding: 10px;
-}
-
-.list-item:hover {
-  background-color: #4BA890;
-  color: white;
-  -webkit-transform: translateY(-5px);
-  transform: translateY(-5px);
+.container-fluid {
+  background-color: #efefef;
 }
 
 .header {
@@ -78,12 +50,36 @@ div.special > div[class*="col-"] {
   display: block;
 }
 
-.comment-text {
-
+.bubble 
+{
+  position: relative;
+  width: 400px;
+  min-height: 80px;
+  height: auto;
+  padding: 10px;
+  background: white;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 
-.bubble {
-  display: inline;
+.send {
+  background-color: #2f93dc;
+  color: white;
+}
+
+.bubble:after 
+{
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 12px 15px 12px 0;
+  border-color: transparent white;
+  display: block;
+  width: 0;
+  z-index: 1;
+  left: -15px;
+  top: 20px;
 }
 
 #add-comment {
@@ -93,4 +89,8 @@ div.special > div[class*="col-"] {
 
 input {
   padding: 10px;
+  background-color: #efefef;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
 }
