@@ -1,5 +1,5 @@
 body {
-  background-color: #FCEAD0;
+  background-color: #cccccc;
 }
 
 ul {
@@ -46,14 +46,51 @@ li {
   height: 50px;
 }
 
-.header > span {
-
+.main {
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .title {
-  font-size: 2em;
+  font-size: 40px;
 }
 
 div.special > div[class*="col-"] {
- padding: 0; 
+ padding-bottom: 10px;
+ padding-left: 0; 
+}
+
+.date {
+  color: #cccccc;
+}
+
+.subheader {
+  font-size: 20px;
+}
+
+.icon {
+  height: 24px;
+  width: 24px;
+}
+
+.userIcon {
+  display: block;
+}
+
+.comment-text {
+
+}
+
+.bubble {
+  display: inline;
+}
+
+#add-comment {
+  width: 500px;
+  background-color: green;
+}
+
+input {
+  padding: 10px;
 }
