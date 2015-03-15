@@ -50,7 +50,7 @@ div.special > div[class*="col-"] {
   display: block;
 }
 
-.bubble 
+.text-bubble 
 {
   position: relative;
   width: 400px;
@@ -63,12 +63,8 @@ div.special > div[class*="col-"] {
   border-radius: 10px;
 }
 
-.send {
-  background-color: #2f93dc;
-  color: white;
-}
 
-.bubble:after 
+.text-bubble:after 
 {
   content: '';
   position: absolute;
@@ -82,6 +78,11 @@ div.special > div[class*="col-"] {
   top: 20px;
 }
 
+.send {
+  background-color: #2f93dc;
+  color: white;
+}
+
 #add-comment {
   width: 500px;
   background-color: green;
@@ -93,4 +94,10 @@ input {
   width: 95%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.btn-comment {
+  display: inline;
+  margin: 10px;
+  padding: 10px;
 }

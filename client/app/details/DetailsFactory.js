@@ -78,7 +78,7 @@
       })
     }
 
-    function postComment(makername, projectId, comment) {
+    function postComment(makername, projectId, comment, cb) {
       var comment = { raw: comment }
 
       var req = {
@@ -101,6 +101,7 @@
 
       $http(req).success(function(data, status, headers, config) {
         console.log('comments posted!', data)
+        cb();
       }).error(function(data, status, headers, config) {
         console.log(status);
       })

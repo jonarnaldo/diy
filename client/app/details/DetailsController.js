@@ -25,6 +25,8 @@
       vm.image = project.clips[0].assets.web_480.url;
       vm.commentCount = project.stats.comments;
 
+      console.log('vm',vm)
+
       // change comment title to plural if greater than 1 comment
       if (vm.commentCount > 1) {
         vm.comment = 'comments';
@@ -48,7 +50,6 @@
           comments.time = moment(data.response[i].stamp).startOf('day').fromNow();
           vm.comments.push(comments);
         }
-        console.log('ang comments',vm.comments);
       });
 
       DetailsFactory.getFavorites(vm.maker, vm.projectId, function(data) {
@@ -56,14 +57,27 @@
       })
     })
 
+
+    // Submit comments
     vm.submit = function(comment) {
-      DetailsFactory.postComment(vm.maker, vm.projectId, comment);
+      DetailsFactory.postComment(vm.maker, vm.projectId, comment, function() {
+        vm.commentInput = null;
+
+        // update comments to show added comment
+        DetailsFactory.getComments(vm.maker, vm.projectId, function(data) {
+          vm.comments = [];
+
+          for (var i = 0; i < data.response.length; i++) {
+            var comments = {};
+            comments = data.response[i]
+            comments.time = moment(data.response[i].stamp).startOf('day').fromNow();
+            vm.comments.push(comments);
+          }
+          console.log('comments updated!',vm.comments);
+        });      
+      });
+
     }
-
-
-    // vm.redirect = function() {
-    //   $window.location.href = '/foo'
-    // }
 
   }
 })();
