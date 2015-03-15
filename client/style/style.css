@@ -2,26 +2,27 @@ a {
   color: #3290d8;
 }
 
-.nickname {
-  font-size: 1.5rem;
-}
 
 .container-fluid {
   background-color: #efefef;
 }
 
-.header {
+.nav {
   background-color: black;
   color: white;
   padding: 0px;
   margin-bottom: 30px;
-  height: 50px;
+  height: 80px;
 }
 
 .main {
   width: 900px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.nickname {
+  font-size: 1.5rem;
 }
 
 .title {
@@ -33,7 +34,7 @@ div.special > div[class*="col-"] {
  padding-left: 0; 
 }
 
-.date {
+.grey {
   color: #cccccc;
 }
 
@@ -46,14 +47,21 @@ div.special > div[class*="col-"] {
   width: 24px;
 }
 
-.userIcon {
+.user-icon {
   display: block;
+  height: 50px;
+  width: 50px;
+}
+
+.favorite-icon {
+  height: 20px;
+  width: 20px;
 }
 
 .text-bubble 
 {
   position: relative;
-  width: 400px;
+  width: 450px;
   min-height: 80px;
   height: auto;
   padding: 10px;
@@ -61,6 +69,7 @@ div.special > div[class*="col-"] {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
+  margin-left: 30px;
 }
 
 
@@ -92,12 +101,17 @@ input {
   padding: 10px;
   background-color: #efefef;
   width: 95%;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 8px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 3px;
+  border: 4px;
+  height: 120px;
+  width: 425px;
 }
 
 .btn-comment {
   display: inline;
-  margin: 10px;
+  margin: 0px;
   padding: 10px;
 }

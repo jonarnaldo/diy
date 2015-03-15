@@ -1,12 +1,12 @@
 <div class="container-fluid">
 <div class="row special">
-  <div class="col-lg-12 header"></div>
+  <div class="col-lg-12 nav"></div>
 </div>
 <div class="main">
   <div class="container-fluid">
   <div class="row special">
     <div class="col-lg-12 title">
-      {{ vm.title }}
+      <img src=" {{ vm.makerIcon }}"> {{ vm.title }}
     </div>
   </div>
     <div class="row special">
@@ -20,7 +20,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-12 date">
+          <div class="col-lg-12 grey">
             {{ vm.date }}
           </div>
         </div>
@@ -36,35 +36,59 @@
         <div class="subheader">
           <img class="icon" src="icons/comment.svg"/> {{ vm.commentCount }} {{ vm.comment }}
         </div>
-      </div>
-      <div id="{{ comment.id }}" class="comment" ng-repeat="comment in vm.comments">
-        <div class="container-fluid">
-          <div class="row special">
-            <div class="col-lg-2">
-              <div class="userIcon">
-                <img src="{{ comment.maker.avatar.small.url }}" height="50px" width="50px">
+        <div id="{{ comment.id }}" class="comment" ng-repeat="comment in vm.comments">
+          <div class="container-fluid">
+            <div class="row special">
+              <div class="col-lg-1">
+                  <img src="{{ comment.maker.avatar.small.url }}" class="user-icon">
               </div>
-            </div>
-            <div class="col-lg-10">
-              <div class="text-bubble">
-                <div>
-                  <a class="nickname" href='#'>{{ comment.maker.nickname }}</a> {{ comment.time }}
-                </div>
-                <div class="comment-text">
-                  {{ comment.html }}
+              <div class="col-lg-11">
+                <div class="text-bubble">
+                  <div class="text-bubble-header">
+                    <a class="nickname" href='#'>{{ comment.maker.nickname }}</a> <span class="grey">{{ comment.time }}</span>
+                  </div>
+                  <div class="comment-text">
+                    <div class="row">
+                      <div class="col-lg-10">
+                        {{ comment.html }} 
+                      </div>
+                      <div class="col-lg-1">
+                        <img class="icon" src="icons/reply.svg">
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-lg-4 subheader">
-        <img class="icon" src="icons/favorite.svg"/> {{ vm.favorites }} Favorites
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-6">
+        <div class="row">
+          <div class="col-lg-1">
+            <a href='#'><img class="user-icon" src="{{ vm.currentUser.avatar.small.url }}"></a>
+          </div>
+          <div class="col-lg-11">
+            <div class="text-bubble">
+              <a class="nickname" href='#'>{{ vm.currentUser.nickname }}</a>
+              <input ng-model="vm.commentInput"></input>
+              <button class="btn btn-primary btn-sml btn-comment" ng-click="vm.submit(vm.commentInput)">Send</button>
             </div>
-            <div class="col-lg-6">
+          </div>
+        </div>        
+      </div>
+      <div class="col-lg-4">
+        <img class="icon" src="icons/favorite.svg"/>
+        <span class="subheader">{{ vm.favorites }} Favorites</span>
+        <div class="container-fluid">
+          <div class="row special">
+            <div class="col-lg-12">
+              <div ng-repeat="favorite in vm.makersFavorite">
+                <span>
+                  <img class="favorite-icon" src="{{ favorite.avatar.small.url }}"
+                </span>
+                <span>
+                  {{ favorite.nickname }}
+                </span>
+              </div>
             </div>
           </div>
         </div>

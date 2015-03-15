@@ -24,8 +24,7 @@
       vm.title = project.title;
       vm.image = project.clips[0].assets.web_480.url;
       vm.commentCount = project.stats.comments;
-
-      console.log('vm',vm)
+      vm.makerIcon = project.maker.avatar.small.url;
 
       // change comment title to plural if greater than 1 comment
       if (vm.commentCount > 1) {
@@ -38,13 +37,14 @@
       
       DetailsFactory.getCurrentUser('corgiponcho', function(data) {
         vm.currentUser = data.response;
+        console.log('current user',vm.currentUser);
       })
 
       DetailsFactory.getComments(vm.maker, vm.projectId, function(data) {
         console.log(data.response);
         vm.comments = [];
 
-        for (var i = 0; i < data.response.length; i++) {
+        for (var i = 0; i < data.response.length; i++) {  
           var comments = {};
           comments = data.response[i]
           comments.time = moment(data.response[i].stamp).startOf('day').fromNow();
@@ -53,7 +53,8 @@
       });
 
       DetailsFactory.getFavorites(vm.maker, vm.projectId, function(data) {
-        vm.makersFavorite = data.response;
+        vm.makersFavorite = data.response; // returns an array
+        console.log('favorited',vm.makersFavorite)
       })
     })
 
