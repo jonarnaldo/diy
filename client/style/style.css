@@ -110,6 +110,7 @@ div.special > div[class*="col-"] {
 .text-bubble 
 {
   position: relative;
+  font-family: ApexRounded-Book;
   width: 408px;
   min-height: 80px;
   height: auto;
@@ -138,6 +139,7 @@ div.special > div[class*="col-"] {
 .text-bubble-response
 {
   position: relative;
+  font-family: ApexRounded-Book;
   width: 320px;
   min-height: 80px;
   height: auto;
