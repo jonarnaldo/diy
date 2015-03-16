@@ -15,10 +15,13 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/client'));
 
 // Routes
-app.get('*', function(req, res, next) {
-  console.log('reroute');
-  res.sendFile(__dirname + '/client/index.html');
-  res.end();
+app.get('*', function(err, req, res, next) {
+  if (err) {
+    console.error(err);
+  } else {
+    res.sendFile(__dirname + '/client/index.html');
+    res.end();
+  }
 })
 
 app.listen(app.get('port'), function(){

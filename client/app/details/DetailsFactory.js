@@ -68,8 +68,6 @@
     }
 
     function postComment(makername, projectId, comment, cb) {
-      var comment = { raw: comment }
-      // should move this to backend to protect token...
       var req = {
         method: 'POST',
         url: 'https://api.diy.org/makers/' + makername + '/projects/' + projectId + '/comments',
@@ -77,7 +75,7 @@
           'x-diy-api-token': '7eb062862633e4b50a11f8d845df6e113430da0f',
           'Content-Type': 'application/x-www-form-urlencoded'
         },
-        data: comment,
+        data: { raw: comment },
         transformRequest: function(data) {
           var str = [];
           for (var key in data) {
@@ -92,6 +90,6 @@
       }).error(function(data, status, headers, config) {
         console.log(status);
       })
-    }     
+    }      
   }
 })();
