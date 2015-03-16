@@ -1,5 +1,16 @@
+@font-face {
+font-family: ApexRounded-Book;
+src: url("fonts/ApexRounded-Book.otf") format("opentype");
+}
+
+@font-face {
+font-family: ApexRounded-Medium;
+src: url("fonts/ApexRounded-Medium.otf") format("opentype");
+}
+
 body {
   background-color: #efefef;
+  font-family: ApexRounded-Medium;
 }
 
 a {
@@ -7,6 +18,7 @@ a {
 }
 
 .nav {
+  font-family: ApexRounded-Book;
   background-color: #1f1f26;
   color: white;
   padding: 0px;
@@ -175,7 +187,7 @@ div.special > div[class*="col-"] {
   min-height: 35px;
   width: 38px;
   border-radius: 6px;
-  margin-left: -10px;
+  margin-left: -16px;
 }
 
 .reply:hover {
