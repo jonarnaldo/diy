@@ -1,12 +1,12 @@
 <div class="container-fluid">
 <div class="row special">
-  <div class="col-lg-12 nav">
+  <div class="col-xs-12 nav">
     <div class="main">
       <div class="row">
-        <div class="col-m-2 col-lg-2">
+        <div class="col-xs-2">
           <img class="icon-large" src="{{ vm.currentUser.avatar.small.url }}">   
         </div>
-        <div class="col-m-10 col-lg-10">
+        <div class="col-xs-10">
           <div class="nav-item">Stream</div>
           <div class="nav-item">Explore</div>
           <div class="nav-item">Skills</div>
@@ -20,56 +20,93 @@
 <div class="main">
   <div class="container-fluid">
   <div class="row special">
-    <div class="col-lg-12 title">
+    <div class="col-xs-12 title">
       <img src=" {{ vm.makerIcon }}" class="icon-large"> {{ vm.title }}
     </div>
   </div>
     <div class="row special">
-      <div class="col-lg-8">
+      <div class="col-xs-8">
         <img src="{{ vm.image }}">
       </div>
-      <div class="col-lg-4">
+      <div class="col-xs-4">
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-xs-12">
             <h3>Made by {{ vm.maker }}</h3>
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-12 grey">
+          <div class="col-xs-12 grey">
             {{ vm.date }}
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-xs-12">
             Badges
           </div>
         </div>
       </div>
     </div>
     <div class="row special">
-      <div class="col-xs-8 col-lg-8">       
+      <div class="col-xs-8">       
         <div class="subheader">
           <img class="icon-small" src="icons/comment.svg"/> {{ vm.commentCount }} {{ vm.comment }}
         </div>
         <div id="{{ comment.id }}" class="comment" ng-repeat="comment in vm.comments">
           <div class="container-fluid">
             <div class="row special">
-              <div class="col-lg-1">
+              <div ng-if="comment.reply == 0" class="col-xs-1">
                   <img src="{{ comment.maker.avatar.small.url }}" class="icon-medium">
               </div>
-              <div class="col-lg-11">
-                <div class="text-bubble">
+              <div class="col-xs-11">
+                <div ng-if="comment.reply != 0">
+
+                  
+                  <div class="row">
+                    <div class="col-xs-12 col-xs-offset-2">
+                      <div class="row">
+                        <div class="col-xs-1">
+                          <img src="{{ comment.maker.avatar.small.url }}" class="icon-medium">
+                        </div>
+                        <div class="col-xs-1">
+                         <div class="text-bubble-response">
+                            <div class="text-bubble-header">
+                              <a class="nickname" href='#'>{{ comment.maker.nickname }}</a> <span class="grey">{{ comment.time }}</span>
+                            </div>
+                            <div class="comment-text">
+                              <div class="row">
+                                <div class="col-xs-11">
+                                  {{ comment.html }} 
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-xs-1 col-xs-offset-10">
+                                  <div class="reply-response">
+                                    <div class="icon-center">
+                                      <img class="icon-small" src="icons/reply.svg">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div ng-if="comment.reply == 0" class="text-bubble">
                   <div class="text-bubble-header">
                     <a class="nickname" href='#'>{{ comment.maker.nickname }}</a> <span class="grey">{{ comment.time }}</span>
                   </div>
                   <div class="comment-text">
                     <div class="row">
-                      <div class="col-lg-11">
+                      <div class="col-xs-11">
                         {{ comment.html }} 
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-lg-1 col-lg-offset-10">
+                      <div class="col-xs-1 col-xs-offset-10">
                         <div class="reply">
                           <div class="icon-center">
                             <img class="icon-small" src="icons/reply.svg">
@@ -84,19 +121,19 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-1">
+          <div class="col-xs-1">
             <a href='#'><img class="icon-medium" src="{{ vm.currentUser.avatar.small.url }}"></a>
           </div>
-          <div class="col-lg-11">
+          <div class="col-xs-11">
             <div class="text-bubble">
               <a class="nickname" href='#'>{{ vm.currentUser.nickname }}</a>
               <div class="row">
-                <div class="col-lg-12">
+                <div class="col-xs-12">
                   <textarea id="input" ng-model="vm.commentInput"></textarea>
                 </div>
               </div>
               <div class="row">
-                <div class="col-lg-1 col-lg-offset-10">
+                <div class="col-xs-1 col-xs-offset-10">
                   <button class="btn btn-primary btn-sml btn-comment" ng-click="vm.submit(vm.commentInput)">Send</button>
                 </div>
               </div>
@@ -104,13 +141,13 @@
           </div>
         </div>        
       </div>
-      <div class="col-xs-4 col-lg-4">
+      <div class="col-xs-4">
         <div class="subheader"> 
           <img class="icon-small" src="icons/favorite.svg"/>
           {{ vm.favorites }} Favorites</div>
         <div class="container-fluid">
           <div class="row special">
-            <div class="col-lg-12">
+            <div class="col-xs-12">
               <div ng-repeat="favorite in vm.makersFavorite">
                 <span>
                   <img class="favorite-icon" src="{{ favorite.avatar.small.url }}"

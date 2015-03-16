@@ -98,7 +98,7 @@ div.special > div[class*="col-"] {
 .text-bubble 
 {
   position: relative;
-  width: 450px;
+  width: 408px;
   min-height: 80px;
   height: auto;
   padding: 10px;
@@ -108,7 +108,6 @@ div.special > div[class*="col-"] {
   border-radius: 4px;
   margin-left: 24px;
 }
-
 
 .text-bubble:after 
 {
@@ -123,6 +122,35 @@ div.special > div[class*="col-"] {
   left: -15px;
   top: 20px;
 }
+
+.text-bubble-response
+{
+  position: relative;
+  width: 320px;
+  min-height: 80px;
+  height: auto;
+  padding: 10px;
+  background: white;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 4px;
+  margin-left: 24px;
+}
+
+.text-bubble-response:after 
+{
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 12px 15px 12px 0;
+  border-color: transparent white;
+  display: block;
+  width: 0;
+  z-index: 1;
+  left: -15px;
+  top: 20px;
+}
+
 
 .send {
   background-color: #2f93dc;
@@ -139,11 +167,24 @@ div.special > div[class*="col-"] {
   min-height: 35px;
   width: 38px;
   border-radius: 6px;
-  margin-left: 10px;
+  margin-left: 0px;
+}
+
+.reply-response {
+  background-color: #b4b4b4;
+  min-height: 35px;
+  width: 38px;
+  border-radius: 6px;
+  margin-left: -10px;
 }
 
 .reply:hover {
   background-color: #1687cf;
+}
+
+.comments-test {
+  width: 480px;
+  margin: 20px;
 }
 
 #input {
@@ -156,7 +197,7 @@ div.special > div[class*="col-"] {
   border-radius: 2px;
   border: 4px;
   height: 120px;
-  width: 425px;
+  width: 380px;
   resize: none;
 }
 
