@@ -6,7 +6,6 @@ angular
   .config(config);
 
   function config($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
-    // $urlRouterProvider.otherwise('/');
 
     $stateProvider
     .state('test', {
@@ -23,7 +22,5 @@ angular
       url:'/error',
       templateUrl: 'app/error/error.html',
     })
-
-    // $locationProvider.html5Mode(true);
   }
 }).call(this)

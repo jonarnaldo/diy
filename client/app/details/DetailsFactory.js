@@ -17,15 +17,11 @@
     return services;
 
     function getCurrentUser(maker, cb) {
-      console.log('getting data...');
       $http({
         url: 'https://api.diy.org/makers/' + maker,
         method: 'GET'
       }).success(function(data, status, headers, config) {
-        if (data.head.code === 200) {
-          console.log('project:', data); 
-          cb(data);
-        }
+        if (data.head.code === 200) { cb(data); }
       }).error(function (data, status, headers, config) {
         console.log('Error! ', status);
         // redirect to 404 page
@@ -34,18 +30,13 @@
     }    
 
     function getProject(maker, projectId, cb) {
-      console.log('getting data...');
       $http({
         url: 'https://api.diy.org/makers/' + maker + '/projects/' + projectId,
         method: 'GET'
       }).success(function(data, status, headers, config) {
-        if (data.head.code === 200) {
-          console.log('project:', data); 
-          cb(data);
-        }
+        if (data.head.code === 200) { cb(data); }
       }).error(function (data, status, headers, config) {
         console.log('Error! ', status);
-        // redirect to 404 page
         $location.path( "/error" );
       })
     }
@@ -57,7 +48,6 @@
       }
       
       $http(req).success(function(data, status, headers, config) {
-        console.log('comments retreived', data)
         cb(data);
       }).error(function(data, status, headers, config) {
         console.log(status, headers);
@@ -65,7 +55,6 @@
     }
 
     function getFavorites(maker, projectId, cb) {
-      
       var req = {
         method: 'GET',
         url: 'https://api.diy.org/makers/' +  maker + '/projects/' + projectId + '/favorites'
@@ -80,7 +69,7 @@
 
     function postComment(makername, projectId, comment, cb) {
       var comment = { raw: comment }
-
+      // should move this to backend to protect token...
       var req = {
         method: 'POST',
         url: 'https://api.diy.org/makers/' + makername + '/projects/' + projectId + '/comments',
@@ -90,7 +79,6 @@
         },
         data: comment,
         transformRequest: function(data) {
-          console.log('transforming:',data)
           var str = [];
           for (var key in data) {
             str.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));
@@ -100,7 +88,6 @@
       };
 
       $http(req).success(function(data, status, headers, config) {
-        console.log('comments posted!', data)
         cb();
       }).error(function(data, status, headers, config) {
         console.log(status);

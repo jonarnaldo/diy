@@ -15,7 +15,6 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/client'));
 
 // Routes
-
 app.get('*', function(req, res, next) {
   console.log('reroute');
   res.sendFile(__dirname + '/client/index.html');
